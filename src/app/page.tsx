@@ -16,12 +16,21 @@ import SpotlightCard from "@/components/SpotlightCard/SpotlightCard";
 import { FiBook, FiFileText } from "react-icons/fi";
 import GlassIcons from "@/components/GlassIcons/GlassIcons";
 import CountUp from "@/components/CountUp/CountUp";
+import CustomAccordion from "@/components/work-accordion";
+import {
+  IconBrandLinkedin,
+  IconBrandGithub,
+  IconMail,
+} from "@tabler/icons-react";
+import LetterGlitch from "@/components/LetterGlitch/LetterGlitch";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   const homeRef = useRef<HTMLDivElement>(null!);
   const aboutRef = useRef<HTMLDivElement>(null!);
   const timelineRef = useRef<HTMLDivElement>(null!);
   const projectsRef = useRef<HTMLDivElement>(null!);
+  const footer = useRef<HTMLDivElement>(null!);
 
   //Scroll function
   const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
@@ -62,6 +71,37 @@ export default function Home() {
       icon: <VscTerminal size={18} />,
       label: "Projects",
       onClick: () => scrollToSection(projectsRef),
+    },
+  ];
+
+  const accordionItems = [
+    {
+      value: "item-1",
+      title: "Hustl: Job Hunting Tracker",
+      subtitle: "Mobile application developed for job seekers",
+      content: "",
+      image: "/logo/figma.svg",
+    },
+    {
+      value: "item-2",
+      title: "e-Portfolio",
+      subtitle: "Personal portfolio website",
+      content: "",
+      image: "/logo/firebase.svg",
+    },
+    {
+      value: "item-3",
+      title: "Childcare Digital Book",
+      subtitle: "Mobile application for childcare and infants checkup",
+      content: "",
+      image: "/logo/reactjs.svg",
+    },
+    {
+      value: "item-4",
+      title: "ARJirim",
+      subtitle: "Science learning mobile application",
+      content: "",
+      image: "/logo/flutter.svg",
     },
   ];
 
@@ -160,7 +200,7 @@ export default function Home() {
       {/* About Me Section */}
       <section
         ref={aboutRef}
-        className="min-h-screen flex items-start justify-center p-4 mt-8 sm:p-8 max-w-4xl mx-auto"
+        className="flex items-start justify-center p-4 mt-8 sm:p-8 max-w-4xl mx-auto"
       >
         <div className="w-full">
           <div className="flex justify-center mb-8">
@@ -247,13 +287,14 @@ export default function Home() {
               </div>
             </div>
           </div>
+          <div className="h-0 md:h-16" />
         </div>
       </section>
 
       {/* Timeline Section */}
       <section
         ref={timelineRef}
-        className="min-h-screen flex items-start justify-center p-4 sm:p-8 max-w-4xl mx-auto"
+        className="min-h-screen flex items-start justify-center p-4 mt-16 md:mt-12 sm:p-8 max-w-4xl mx-auto"
       >
         <div className="flex justify-center mb-8">
           <ScrollFloat
@@ -272,8 +313,75 @@ export default function Home() {
       {/* Projects Section */}
       <section
         ref={projectsRef}
-        className="min-h-screen p-8 flex items-center justify-center"
-      ></section>
+        className="min-h-screen p-8 flex items-start justify-center max-w-4xl mx-auto"
+      >
+        <div className="flex flex-col items-center justify-center w-full">
+          <ScrollFloat
+            animationDuration={1}
+            ease="back.inOut(2)"
+            scrollStart="center bottom+=50%"
+            scrollEnd="bottom bottom-=40%"
+            stagger={0.03}
+            textClassName="font-bold text-2xl sm:text-3xl md:text-4xl text-center mb-16"
+          >
+            My Works
+          </ScrollFloat>
+
+          <div className="flex flex-col gap-4 w-full">
+            <CustomAccordion items={accordionItems} defaultOpen="item-1" />
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <section
+        ref={footer}
+        className="p-8 flex flex-col items-start justify-center max-w-4xl mx-auto pb-12"
+      >
+        <div className="w-full rounded-xl border-2 border-neutral-900 md:h-[35vh] h-[25vh] relative p-1 flex flex-col items-center justify-center">
+          <div className="absolute flex flex-col items-center gap-y-1 z-10">
+            <Button className="flex items-center space-x-1 px-6 rounded-full">
+              <div className="w-2 h-2 bg-lime-300 rounded-full" />
+              <span className="text-xs">Available for work</span>
+            </Button>
+            <p className="text-2xl text-neutral-200 pt-4 font-bold text-center">
+              Lets create your idea, Together.
+            </p>
+          </div>
+          <LetterGlitch
+            glitchSpeed={50}
+            centerVignette={true}
+            outerVignette={false}
+            smooth={true}
+            glitchColors={["#0a0a0a", "#27272a", "#18181b"]}
+          />
+        </div>
+
+        <div className="flex w-full flex-col md:flex-row md:justify-between my-4 items-center md:items-start space-y-4 md:space-y-0">
+          <span className="text-xs text-neutral-600">
+            © 2025 Fakhrul Hadi. All rights reserved.
+          </span>
+          <div className="flex space-x-4">
+            <a
+              href="https://www.linkedin.com/in/fakhrulhadi/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <IconBrandLinkedin className="w-5 h-5 text-neutral-600 hover:text-neutral-400" />
+            </a>
+            <a
+              href="https://github.com/FaHadiiii"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <IconBrandGithub className="w-5 h-5 text-neutral-600 hover:text-neutral-400" />
+            </a>
+            <a href="mailto:hadiayo39@gmail.com">
+              <IconMail className="w-5 h-5 text-neutral-600 hover:text-neutral-400" />
+            </a>
+          </div>
+        </div>
+      </section>
     </ClickSpark>
   );
 }
