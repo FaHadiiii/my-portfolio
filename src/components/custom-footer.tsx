@@ -7,7 +7,7 @@ import {
 } from "@tabler/icons-react";
 import LetterGlitch from "./LetterGlitch/LetterGlitch";
 
-const Footer = forwardRef<HTMLElement, {}>((props, ref) => {
+const Footer = forwardRef<HTMLElement, Record<string, never>>((props, ref) => {
   return (
     <section
       ref={ref}
@@ -63,5 +63,7 @@ const Footer = forwardRef<HTMLElement, {}>((props, ref) => {
     </section>
   );
 });
+
+Footer.displayName = "Footer";
 
 export default Footer;

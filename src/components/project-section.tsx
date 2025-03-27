@@ -61,30 +61,34 @@ const accordionItems = [
   },
 ];
 
-const ProjectsSection = forwardRef<HTMLElement, {}>((props, ref) => {
-  return (
-    <section
-      ref={ref}
-      className="min-h-screen p-8 flex items-start justify-center max-w-4xl mx-auto mt-16 md:mt-30"
-    >
-      <div className="flex flex-col items-center justify-center w-full">
-        <ScrollFloat
-          animationDuration={1}
-          ease="back.inOut(2)"
-          scrollStart="center bottom+=50%"
-          scrollEnd="bottom bottom-=40%"
-          stagger={0.03}
-          textClassName="font-bold text-2xl sm:text-3xl md:text-4xl text-center mb-16"
-        >
-          My Works
-        </ScrollFloat>
+const ProjectsSection = forwardRef<HTMLElement, Record<string, never>>(
+  (props, ref) => {
+    return (
+      <section
+        ref={ref}
+        className="min-h-screen p-8 flex items-start justify-center max-w-4xl mx-auto mt-16 md:mt-30"
+      >
+        <div className="flex flex-col items-center justify-center w-full">
+          <ScrollFloat
+            animationDuration={1}
+            ease="back.inOut(2)"
+            scrollStart="center bottom+=50%"
+            scrollEnd="bottom bottom-=40%"
+            stagger={0.03}
+            textClassName="font-bold text-2xl sm:text-3xl md:text-4xl text-center mb-16"
+          >
+            My Works
+          </ScrollFloat>
 
-        <div className="flex flex-col gap-4 w-full">
-          <CustomAccordion items={accordionItems} defaultOpen="item-1" />
+          <div className="flex flex-col gap-4 w-full">
+            <CustomAccordion items={accordionItems} defaultOpen="item-1" />
+          </div>
         </div>
-      </div>
-    </section>
-  );
-});
+      </section>
+    );
+  }
+);
+
+ProjectsSection.displayName = "ProjectsSection";
 
 export default ProjectsSection;
