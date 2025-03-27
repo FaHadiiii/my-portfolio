@@ -5,6 +5,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { IconLink, IconBrandGithub, IconEye } from "@tabler/icons-react";
+import { Button } from "./ui/button";
 
 // Define the type for accordion items
 interface AccordionItemProps {
@@ -13,6 +15,7 @@ interface AccordionItemProps {
   subtitle: string;
   content: React.ReactNode;
   image?: string;
+  techstack: string[];
 }
 
 // Define the component props
@@ -36,7 +39,7 @@ const CustomAccordion: React.FC<CustomAccordionProps> = ({
           collapsible
           value={openItem === item.value ? item.value : undefined}
           onValueChange={(value) => setOpenItem(value)}
-          className="w-full rounded-xl border-2 border-neutral-800 px-6 py-2"
+          className="w-full rounded-xl border-2 border-neutral-900 px-6 py-2"
         >
           <AccordionItem value={item.value}>
             <AccordionTrigger className="flex items-center space-x-4 justify-between w-full hover:no-underline focus:no-underline">
@@ -49,14 +52,40 @@ const CustomAccordion: React.FC<CustomAccordionProps> = ({
                     {item.title}
                   </span>
                   {item.subtitle && (
-                    <span className="text-sm text-neutral-600">
+                    <span className="text-sm text-neutral-600 block truncate w-[180px] md:w-full">
                       {item.subtitle}
                     </span>
                   )}
                 </div>
               </div>
             </AccordionTrigger>
-            <AccordionContent>{item.content}</AccordionContent>
+            <AccordionContent className="pt-2">
+              <span className="text-neutral-200 text-sm">{item.content}</span>
+              <div className="h-6"></div>
+              <div className="flex items-center justify-between">
+                <div className="flex flex-wrap gap-2">
+                  {item.techstack.map((tech, index) => (
+                    <img
+                      src={tech}
+                      alt={item.title}
+                      className="h-4 w-4 mr-2"
+                      key={index}
+                    />
+                  ))}
+                </div>
+                <div className="flex space-x-2">
+                  <Button className="w-8 h-8">
+                    <IconLink className="text-neutral-400" />
+                  </Button>
+                  <Button className="w-8 h-8">
+                    <IconBrandGithub className="text-neutral-400" />
+                  </Button>
+                  <Button className="w-8 h-8">
+                    <IconEye className="text-neutral-400" />
+                  </Button>
+                </div>
+              </div>
+            </AccordionContent>
           </AccordionItem>
         </Accordion>
       ))}

@@ -21,14 +21,16 @@ import {
   IconBrandLinkedin,
   IconBrandGithub,
   IconMail,
+  IconCode,
 } from "@tabler/icons-react";
 import LetterGlitch from "@/components/LetterGlitch/LetterGlitch";
 import { Button } from "@/components/ui/button";
+import PixelCard from "@/components/pixel-card";
 
 export default function Home() {
   const homeRef = useRef<HTMLDivElement>(null!);
   const aboutRef = useRef<HTMLDivElement>(null!);
-  const timelineRef = useRef<HTMLDivElement>(null!);
+  const skillsref = useRef<HTMLDivElement>(null!);
   const projectsRef = useRef<HTMLDivElement>(null!);
   const footer = useRef<HTMLDivElement>(null!);
 
@@ -64,12 +66,12 @@ export default function Home() {
     },
     {
       icon: <VscGroupByRefType size={18} />,
-      label: "Timeline",
-      onClick: () => scrollToSection(timelineRef),
+      label: "My Skills",
+      onClick: () => scrollToSection(skillsref),
     },
     {
       icon: <VscTerminal size={18} />,
-      label: "Projects",
+      label: "My Works",
       onClick: () => scrollToSection(projectsRef),
     },
   ];
@@ -79,29 +81,57 @@ export default function Home() {
       value: "item-1",
       title: "Hustl: Job Hunting Tracker",
       subtitle: "Mobile application developed for job seekers",
-      content: "",
+      content:
+        "Hustl is a mobile application developed with Flutter. The objective is to help job seekers to organize their job applications and enhance thir experience with AI Insights.",
       image: "/logo/figma.svg",
+      techstack: [
+        "/logo/figma.svg",
+        "/logo/flutter.svg",
+        "/logo/firebase.svg",
+        "/logo/gcloud.svg",
+      ],
     },
     {
       value: "item-2",
       title: "e-Portfolio",
       subtitle: "Personal portfolio website",
-      content: "",
+      content:
+        "Website developed witth Next.js as a personal portfolio to showcase my skills and projects.",
       image: "/logo/firebase.svg",
+      techstack: [
+        "/logo/figma.svg",
+        "/logo/flutter.svg",
+        "/logo/firebase.svg",
+        "/logo/gcloud.svg",
+      ],
     },
     {
       value: "item-3",
       title: "Childcare Digital Book",
       subtitle: "Mobile application for childcare and infants checkup",
-      content: "",
+      content:
+        "Childcare digital book is a mobile application developed as my bachelor's final year project. Developed using Flutter aims to help digitalize childcare and infants checkup.",
       image: "/logo/reactjs.svg",
+      techstack: [
+        "/logo/figma.svg",
+        "/logo/flutter.svg",
+        "/logo/firebase.svg",
+        "/logo/gcloud.svg",
+      ],
     },
     {
       value: "item-4",
       title: "ARJirim",
       subtitle: "Science learning mobile application",
-      content: "",
+      content:
+        "ARJIrim is a mobile application developed as my diplomas's final year project. Developed using Unity 3D aims to help standard fourth graders to learn matter topic interactively.",
       image: "/logo/flutter.svg",
+      techstack: [
+        "/logo/figma.svg",
+        "/logo/flutter.svg",
+        "/logo/firebase.svg",
+        "/logo/gcloud.svg",
+      ],
     },
   ];
 
@@ -217,7 +247,7 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col md:flex-row gap-6">
-            <div className="md:w-1/3 flex justify-center">
+            <div className="md:w-1/3 flex justify-center md:ml-4">
               <TiltedCard
                 imageSrc="https://i.scdn.co/image/ab67616d0000b273d9985092cd88bffd97653b58"
                 containerHeight="100%"
@@ -291,12 +321,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Timeline Section */}
+      {/* Skills Section */}
       <section
-        ref={timelineRef}
-        className="min-h-screen flex items-start justify-center p-4 mt-16 md:mt-12 sm:p-8 max-w-4xl mx-auto"
+        ref={skillsref}
+        className="flex items-start justify-center p-4 mt-16 md:mt-12 sm:p-8 max-w-4xl mx-auto"
       >
-        <div className="flex justify-center mb-8">
+        <div className="flex flex-col items-center justify-center w-full">
           <ScrollFloat
             animationDuration={1}
             ease="back.inOut(2)"
@@ -305,15 +335,158 @@ export default function Home() {
             stagger={0.03}
             textClassName="font-bold text-2xl sm:text-3xl md:text-4xl text-center mb-6"
           >
-            My Timeline
+            My Skills
           </ScrollFloat>
+          <div className="flex flex-col md:flex-row gap-6 mt-10 max-w-4xl px-9">
+            <PixelCard
+              firstContent={
+                <div className="w-full h-full relative">
+                  <img
+                    src="/fe.jpg"
+                    className="w-full h-full object-cover"
+                    alt="Front End Development"
+                  />
+                  <div className="absolute inset-0 bg-black opacity-70"></div>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <p className="text-neutral-400 text-xs font-semibold text-center bg-neutral-900 px-5 py-3 rounded-sm">
+                      Front End <br />
+                      Development
+                    </p>
+                  </div>
+
+                  <div className="absolute bottom-0 left-0 right-0 flex justify-center gap-2 p-2 items-center gap-4 mb-4">
+                    <img src="/logo/reactjs.svg" className="h-5 object-cover" />
+                    <img src="/logo/nextjs.svg" className="h-2 object-cover" />
+                    <img
+                      src="/logo/shadcnui.svg"
+                      className="h-5 object-cover"
+                    />
+                  </div>
+                </div>
+              }
+              secondContent={
+                <div>
+                  <div className="flex items-center justify-center pb-6">
+                    <IconCode />
+                  </div>
+                  <p className="text-white text-sm font-bold text-center">
+                    Front End Development
+                  </p>
+                  <p className="text-neutral-400 text-xs text-center px-6 mt-4">
+                    I just start learning on front end development, currently
+                    studying Next.js and React.js
+                  </p>
+                </div>
+              }
+              gridSize={12}
+              pixelColor="#ffffff"
+              animationStepDuration={0.4}
+              className="h-[30vh] md:h-full !border-neutral-700"
+            />
+            <PixelCard
+              firstContent={
+                <div className="w-full h-full">
+                  <img
+                    src="/be.jpg"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-black opacity-30 flex items-center justify-center"></div>
+                  <div className="absolute inset-0 bg-transparent opacity-100 flex items-center justify-center">
+                    <p className="text-neutral-400 text-xs font-semibold text-center bg-neutral-900 px-5 py-3 rounded-sm">
+                      Back End <br />
+                      Development
+                    </p>
+                  </div>
+
+                  <div className="absolute bottom-0 left-0 right-0 flex justify-center gap-2 p-2 items-center gap-6 mb-4">
+                    <img src="/logo/nodejs.svg" className="h-5 object-cover" />
+                    <img
+                      src="/logo/gcloud.svg"
+                      className="h-3.5 object-cover "
+                    />
+                    <img src="/logo/mysql.svg" className="h-5 object-cover" />
+                  </div>
+                </div>
+              }
+              secondContent={
+                <div>
+                  <div className="flex items-center justify-center pb-6">
+                    <IconCode />
+                  </div>
+                  <p className="text-white text-sm font-bold text-center">
+                    Back End Development
+                  </p>
+                  <p className="text-neutral-400 text-xs text-center px-6 mt-4">
+                    I just start learning on back end development, currently
+                    learning Node.js and Express.js.
+                  </p>
+                </div>
+              }
+              gridSize={12}
+              pixelColor="#ffffff"
+              animationStepDuration={0.4}
+              className="h-[30vh] md:h-full !border-neutral-700"
+            />
+            <PixelCard
+              firstContent={
+                <div className="w-full h-full">
+                  <img
+                    src="/mob.jpg"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-black opacity-40 flex items-center justify-center"></div>
+                  <div className="absolute inset-0 bg-transparent opacity-100 flex items-center justify-center">
+                    <p className="text-neutral-400 text-xs font-semibold text-center bg-neutral-900 px-5 py-3 rounded-sm">
+                      Mobile <br />
+                      Development
+                    </p>
+                  </div>
+
+                  <div className="absolute bottom-0 left-0 right-0 flex justify-center gap-2 p-2 items-center gap-6 mb-4">
+                    <img src="/logo/flutter.svg" className="h-5 object-cover" />
+                    <img src="/logo/dart.svg" className="h-3.5 object-cover " />
+                    <img
+                      src="/logo/firebase.svg"
+                      className="h-5 object-cover"
+                    />
+                  </div>
+                </div>
+              }
+              secondContent={
+                <div>
+                  <div className="flex items-center justify-center pb-6">
+                    <IconCode />
+                  </div>
+                  <p className="text-white text-sm font-bold text-center">
+                    Mobile Development
+                  </p>
+                  <p className="text-neutral-400 text-xs text-center px-6 mt-4">
+                    I have some experience working with Flutter with Firebase
+                    and Rest API as the backend.
+                  </p>
+                </div>
+              }
+              gridSize={12}
+              pixelColor="#ffffff"
+              animationStepDuration={0.4}
+              className="h-[30vh] md:h-full !border-neutral-700"
+            />
+          </div>
         </div>
       </section>
 
       {/* Projects Section */}
       <section
         ref={projectsRef}
-        className="min-h-screen p-8 flex items-start justify-center max-w-4xl mx-auto"
+        className="min-h-screen p-8 flex items-start justify-center max-w-4xl mx-auto mt-16 md:mt-30"
       >
         <div className="flex flex-col items-center justify-center w-full">
           <ScrollFloat
@@ -341,9 +514,13 @@ export default function Home() {
         <div className="w-full rounded-xl border-2 border-neutral-900 md:h-[35vh] h-[25vh] relative p-1 flex flex-col items-center justify-center">
           <div className="absolute flex flex-col items-center gap-y-1 z-10">
             <Button className="flex items-center space-x-1 px-6 rounded-full">
-              <div className="w-2 h-2 bg-lime-300 rounded-full" />
+              <div className="relative">
+                <div className="absolute w-2 h-2 bg-lime-300 rounded-full animate-ping" />
+                <div className="w-2 h-2 bg-lime-300 rounded-full relative" />
+              </div>
               <span className="text-xs">Available for work</span>
             </Button>
+
             <p className="text-2xl text-neutral-200 pt-4 font-bold text-center">
               Lets create your idea, Together.
             </p>
