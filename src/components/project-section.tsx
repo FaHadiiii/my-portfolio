@@ -1,6 +1,7 @@
 import { forwardRef } from "react";
 import CustomAccordion from "./work-accordion";
 import ScrollFloat from "./ScrollFloat/ScrollFloat";
+import { ForwardRefComponentNoProps } from "@/types/forward-ref";
 
 const accordionItems = [
   {
@@ -61,7 +62,7 @@ const accordionItems = [
   },
 ];
 
-const ProjectsSection = forwardRef<HTMLElement, Record<string, never>>(
+const ProjectsSection: ForwardRefComponentNoProps<HTMLElement> = forwardRef(
   (props, ref) => {
     return (
       <section

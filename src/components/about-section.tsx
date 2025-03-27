@@ -10,6 +10,7 @@ import {
   PropsWithoutRef,
   RefAttributes,
 } from "react";
+import { ForwardRefComponentNoProps } from "@/types/forward-ref";
 export type ForwardRefComponentWithoutProps<T extends HTMLElement> =
   ForwardRefExoticComponent<PropsWithoutRef<{}> & RefAttributes<T>>;
 
@@ -19,7 +20,7 @@ const icon1 = [
 
 const icon2 = [{ icon: <FiBook className="text-lime-300" />, color: "lime" }];
 
-const AboutSection: ForwardRefComponentWithoutProps<HTMLElement> = forwardRef(
+const AboutSection: ForwardRefComponentNoProps<HTMLElement> = forwardRef(
   (props, ref) => {
     return (
       <section

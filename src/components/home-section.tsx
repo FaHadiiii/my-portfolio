@@ -6,6 +6,7 @@ import {
   PropsWithoutRef,
   RefAttributes,
 } from "react";
+import { ForwardRefComponentNoProps } from "@/types/forward-ref";
 export type ForwardRefComponentWithoutProps<T extends HTMLElement> =
   ForwardRefExoticComponent<PropsWithoutRef<{}> & RefAttributes<T>>;
 
@@ -34,7 +35,7 @@ const images = [
   "/logo/wordpress.svg",
 ];
 
-const HomeSection: ForwardRefComponentWithoutProps<HTMLElement> = forwardRef(
+const HomeSection: ForwardRefComponentNoProps<HTMLElement> = forwardRef(
   (props, ref) => {
     return (
       <section

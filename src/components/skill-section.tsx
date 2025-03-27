@@ -2,8 +2,9 @@ import { forwardRef } from "react";
 import ScrollFloat from "./ScrollFloat/ScrollFloat";
 import PixelCard from "./pixel-card";
 import { IconCode } from "@tabler/icons-react";
+import { ForwardRefComponentNoProps } from "@/types/forward-ref";
 
-const SkillsSection = forwardRef<HTMLElement, Record<string, never>>(
+const SkillsSection: ForwardRefComponentNoProps<HTMLElement> = forwardRef(
   (props, ref) => {
     return (
       <section
