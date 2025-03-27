@@ -1,6 +1,13 @@
 import { forwardRef } from "react";
 import RotatingText from "./RotatingText/RotatingText";
 import ImageSlider from "./slider";
+import {
+  ForwardRefExoticComponent,
+  PropsWithoutRef,
+  RefAttributes,
+} from "react";
+export type ForwardRefComponentWithoutProps<T extends HTMLElement> =
+  ForwardRefExoticComponent<PropsWithoutRef<{}> & RefAttributes<T>>;
 
 const images = [
   "/logo/analytics.svg",
@@ -27,7 +34,7 @@ const images = [
   "/logo/wordpress.svg",
 ];
 
-const HomeSection = forwardRef<HTMLElement, Record<string, never>>(
+const HomeSection: ForwardRefComponentWithoutProps<HTMLElement> = forwardRef(
   (props, ref) => {
     return (
       <section

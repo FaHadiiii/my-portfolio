@@ -5,6 +5,13 @@ import SpotlightCard from "./SpotlightCard/SpotlightCard";
 import GlassIcons from "./GlassIcons/GlassIcons";
 import CountUp from "./CountUp/CountUp";
 import { FiBook, FiFileText } from "react-icons/fi";
+import {
+  ForwardRefExoticComponent,
+  PropsWithoutRef,
+  RefAttributes,
+} from "react";
+export type ForwardRefComponentWithoutProps<T extends HTMLElement> =
+  ForwardRefExoticComponent<PropsWithoutRef<{}> & RefAttributes<T>>;
 
 const icon1 = [
   { icon: <FiFileText className="text-lime-300" />, color: "lime" },
@@ -12,7 +19,7 @@ const icon1 = [
 
 const icon2 = [{ icon: <FiBook className="text-lime-300" />, color: "lime" }];
 
-const AboutSection = forwardRef<HTMLElement, Record<string, never>>(
+const AboutSection: ForwardRefComponentWithoutProps<HTMLElement> = forwardRef(
   (props, ref) => {
     return (
       <section
