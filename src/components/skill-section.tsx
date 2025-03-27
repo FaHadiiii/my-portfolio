@@ -33,7 +33,7 @@ const SkillsSection: ForwardRefComponentNoProps<HTMLElement> = forwardRef(
                   />
                   <div className="absolute inset-0 bg-black opacity-70"></div>
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <p className="text-neutral-400 text-xs font-semibold text-center bg-neutral-900 px-5 py-3 rounded-sm">
+                    <p className="text-neutral-400 text-xs font-semibold text-center bg-neutral-900 px-5 py-3 rounded-sm mb-5 md:mb-0">
                       Front End <br />
                       Development
                     </p>
@@ -65,7 +65,7 @@ const SkillsSection: ForwardRefComponentNoProps<HTMLElement> = forwardRef(
               gridSize={12}
               pixelColor="#ffffff"
               animationStepDuration={0.4}
-              className="h-[30vh] md:h-full !border-neutral-900"
+              className="h-[25vh] md:h-full !border-neutral-900"
             />
             <PixelCard
               firstContent={
@@ -77,7 +77,7 @@ const SkillsSection: ForwardRefComponentNoProps<HTMLElement> = forwardRef(
                   />
                   <div className="absolute inset-0 bg-black opacity-30 flex items-center justify-center"></div>
                   <div className="absolute inset-0 bg-transparent opacity-100 flex items-center justify-center">
-                    <p className="text-neutral-400 text-xs font-semibold text-center bg-neutral-900 px-5 py-3 rounded-sm">
+                    <p className="text-neutral-400 text-xs font-semibold text-center bg-neutral-900 px-5 py-3 rounded-sm mb-5 md:mb-0">
                       Back End <br />
                       Development
                     </p>
@@ -109,7 +109,7 @@ const SkillsSection: ForwardRefComponentNoProps<HTMLElement> = forwardRef(
               gridSize={12}
               pixelColor="#ffffff"
               animationStepDuration={0.4}
-              className="h-[30vh] md:h-full !border-neutral-900"
+              className="h-[25vh] md:h-full !border-neutral-900"
             />
             <PixelCard
               firstContent={
@@ -121,7 +121,7 @@ const SkillsSection: ForwardRefComponentNoProps<HTMLElement> = forwardRef(
                   />
                   <div className="absolute inset-0 bg-black opacity-40 flex items-center justify-center"></div>
                   <div className="absolute inset-0 bg-transparent opacity-100 flex items-center justify-center">
-                    <p className="text-neutral-400 text-xs font-semibold text-center bg-neutral-900 px-5 py-3 rounded-sm">
+                    <p className="text-neutral-400 text-xs font-semibold text-center bg-neutral-900 px-5 py-3 rounded-sm mb-5 md:mb-0">
                       Mobile <br />
                       Development
                     </p>
@@ -153,7 +153,7 @@ const SkillsSection: ForwardRefComponentNoProps<HTMLElement> = forwardRef(
               gridSize={12}
               pixelColor="#ffffff"
               animationStepDuration={0.4}
-              className="h-[30vh] md:h-full !border-neutral-900"
+              className="h-[25vh] md:h-full !border-neutral-900"
             />
           </div>
         </div>

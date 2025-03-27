@@ -40,7 +40,7 @@ const HomeSection: ForwardRefComponentNoProps<HTMLElement> = forwardRef(
     return (
       <section
         ref={ref}
-        className="min-h-screen flex flex-col items-center justify-around text-center max-w-4xl mx-auto"
+        className="min-h-[80vh] md:min-h-screen flex flex-col items-center justify-around text-center max-w-4xl mx-auto"
       >
         <div></div>
 
@@ -72,7 +72,7 @@ const HomeSection: ForwardRefComponentNoProps<HTMLElement> = forwardRef(
               rotationInterval={2500}
             />
           </div>
-          <p className="mt-4 text-lgl max-w-xl px-2">
+          <p className="mt-4 text-lgl max-w-xl px-8 md:px-2">
             A passionate developer crafting innovative solutions at the
             intersection of design and technology.
           </p>
