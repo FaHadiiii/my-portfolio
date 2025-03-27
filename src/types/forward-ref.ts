@@ -1,5 +1,4 @@
 import {
-  ForwardRefRenderFunction,
   ForwardRefExoticComponent,
   PropsWithoutRef,
   RefAttributes,
