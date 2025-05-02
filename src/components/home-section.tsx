@@ -1,4 +1,4 @@
-import { forwardRef, useEffect } from "react";
+import { forwardRef } from "react";
 import RotatingText from "./RotatingText/RotatingText";
 import ImageSlider from "./slider";
 import {

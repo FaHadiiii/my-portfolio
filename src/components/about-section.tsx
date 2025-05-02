@@ -1,4 +1,4 @@
-import { forwardRef, use, useEffect } from "react";
+import { forwardRef, useEffect } from "react";
 import ScrollFloat from "./ScrollFloat/ScrollFloat";
 import TiltedCard from "./TiltedCard/TiltedCard";
 import SpotlightCard from "./SpotlightCard/SpotlightCard";
@@ -10,7 +10,6 @@ import {
   PropsWithoutRef,
   RefAttributes,
 } from "react";
-import { ForwardRefComponentNoProps } from "@/types/forward-ref";
 export type ForwardRefComponentWithoutProps<T extends HTMLElement> =
   ForwardRefExoticComponent<PropsWithoutRef<{}> & RefAttributes<T>>;
 

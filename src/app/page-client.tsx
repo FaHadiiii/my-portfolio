@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import ClickSpark from "@/components/ClickSpark/ClickSpark";
 import Dock from "@/components/Dock/Dock";
 import {
