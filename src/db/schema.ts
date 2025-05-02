@@ -1,4 +1,3 @@
-import { year } from "drizzle-orm/mysql-core";
 import { jsonb, pgTable, varchar } from "drizzle-orm/pg-core";
 
 export const homeTable = pgTable("home", {
