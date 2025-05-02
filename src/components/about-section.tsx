@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { forwardRef, use, useEffect } from "react";
 import ScrollFloat from "./ScrollFloat/ScrollFloat";
 import TiltedCard from "./TiltedCard/TiltedCard";
 import SpotlightCard from "./SpotlightCard/SpotlightCard";
@@ -20,8 +20,29 @@ const icon1 = [
 
 const icon2 = [{ icon: <FiBook className="text-lime-300" />, color: "lime" }];
 
-const AboutSection: ForwardRefComponentNoProps<HTMLElement> = forwardRef(
-  (props, ref) => {
+type AboutMeData = {
+  description: string;
+  pic_url: string;
+};
+
+type CertificationsData = {
+  cert_name: string;
+  issuer: string;
+  year: string;
+}[];
+
+type Props = {
+  aboutMeData: AboutMeData;
+  certificationsData: CertificationsData;
+};
+
+const AboutSection = forwardRef<HTMLElement, Props>(
+  ({ aboutMeData, certificationsData }, ref) => {
+    useEffect(() => {
+      console.log(aboutMeData);
+      console.log(certificationsData);
+    }, []);
+
     return (
       <section
         ref={ref}
@@ -45,7 +66,7 @@ const AboutSection: ForwardRefComponentNoProps<HTMLElement> = forwardRef(
             {/* Profile Image Card */}
             <div className="md:w-1/3 flex justify-center md:ml-4">
               <TiltedCard
-                imageSrc="https://i.scdn.co/image/ab67616d0000b273d9985092cd88bffd97653b58"
+                imageSrc={aboutMeData.pic_url}
                 containerHeight="100%"
                 containerWidth="300px"
                 imageHeight="300px"
@@ -61,14 +82,10 @@ const AboutSection: ForwardRefComponentNoProps<HTMLElement> = forwardRef(
             {/* About Me Text + Stats */}
             <div className="md:w-2/3 flex flex-col gap-8 md:gap-6 justify-between">
               <div className="text-center md:text-justify px-6 md:px-4 rounded-lg">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen.
+                {aboutMeData.description}
                 <br />
                 <br />
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
+                Let’s connect, create, and build something amazing together!
               </div>
 
               {/* Spotlight Cards */}
@@ -80,10 +97,12 @@ const AboutSection: ForwardRefComponentNoProps<HTMLElement> = forwardRef(
                   <div className="flex items-center justify-between w-full">
                     <GlassIcons items={icon1} className="custom-class" />
                     <div className="flex flex-col items-end">
-                      <span className="text-neutral-600 text-xs">Awards</span>
+                      <span className="text-neutral-600 text-xs">
+                        Certifications
+                      </span>
                       <CountUp
                         from={0}
-                        to={5}
+                        to={certificationsData.length}
                         separator=","
                         direction="up"
                         duration={0.3}
