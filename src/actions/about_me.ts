@@ -13,3 +13,4 @@ export const fetchCertifications = async () => {
   const certRes = await db.select().from(certificationsTable);
   return certRes;
 };
+

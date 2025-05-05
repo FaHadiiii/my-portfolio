@@ -3,6 +3,8 @@ import { fetchAboutMe, fetchCertifications } from "@/actions/about_me";
 import PageClient from "./page-client";
 import { fetchSkills } from "@/actions/skills";
 import { fetchProjects } from "@/actions/projects";
+export const dynamic = "force-dynamic";
+
 
 export default async function Home() {
   const homeData = (await fetchHome()) as {
@@ -51,3 +53,4 @@ export default async function Home() {
     />
   );
 }
+

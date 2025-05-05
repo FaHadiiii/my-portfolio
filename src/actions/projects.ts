@@ -7,3 +7,4 @@ export const fetchProjects = async () => {
   const projectRes = await db.select().from(projectsTable);
   return projectRes;
 };
+
