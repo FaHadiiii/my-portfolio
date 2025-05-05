@@ -1,4 +1,4 @@
-import { forwardRef, useEffect } from "react";
+import { forwardRef } from "react";
 import ScrollFloat from "./ScrollFloat/ScrollFloat";
 import TiltedCard from "./TiltedCard/TiltedCard";
 import SpotlightCard from "./SpotlightCard/SpotlightCard";
@@ -30,17 +30,23 @@ type CertificationsData = {
   year: string;
 }[];
 
+type ProjectsData = {
+  project_name: string;
+  project_short_desc: string;
+}[];
+
 type Props = {
   aboutMeData: AboutMeData;
   certificationsData: CertificationsData;
+  projectsData: ProjectsData;
 };
 
 const AboutSection = forwardRef<HTMLElement, Props>(
-  ({ aboutMeData, certificationsData }, ref) => {
-    useEffect(() => {
-      console.log(aboutMeData);
-      console.log(certificationsData);
-    }, []);
+  ({ aboutMeData, certificationsData, projectsData }, ref) => {
+    // useEffect(() => {
+    //   console.log(aboutMeData);
+    //   console.log(certificationsData);
+    // }, []);
 
     return (
       <section
@@ -121,7 +127,7 @@ const AboutSection = forwardRef<HTMLElement, Props>(
                       <span className="text-neutral-600 text-xs">Projects</span>
                       <CountUp
                         from={0}
-                        to={4}
+                        to={projectsData.length}
                         separator=","
                         direction="up"
                         duration={0.3}

@@ -1,69 +1,42 @@
-import { forwardRef } from "react";
+import { forwardRef, useEffect } from "react";
 import CustomAccordion from "./work-accordion";
 import ScrollFloat from "./ScrollFloat/ScrollFloat";
-import { ForwardRefComponentNoProps } from "@/types/forward-ref";
 
-const accordionItems = [
-  {
-    value: "item-1",
-    title: "Hustl: Job Hunting Tracker",
-    subtitle: "Mobile application developed for job seekers",
-    content:
-      "Hustl is a mobile application developed with Flutter. The objective is to help job seekers to organize their job applications and enhance thir experience with AI Insights.",
-    image: "/logo/figma.svg",
-    techstack: [
-      "/logo/figma.svg",
-      "/logo/flutter.svg",
-      "/logo/firebase.svg",
-      "/logo/gcloud.svg",
-    ],
-  },
-  {
-    value: "item-2",
-    title: "e-Portfolio",
-    subtitle: "Personal portfolio website",
-    content:
-      "Website developed witth Next.js as a personal portfolio to showcase my skills and projects.",
-    image: "/logo/firebase.svg",
-    techstack: [
-      "/logo/figma.svg",
-      "/logo/flutter.svg",
-      "/logo/firebase.svg",
-      "/logo/gcloud.svg",
-    ],
-  },
-  {
-    value: "item-3",
-    title: "Childcare Digital Book",
-    subtitle: "Mobile application for childcare and infants checkup",
-    content:
-      "Childcare digital book is a mobile application developed as my bachelor's final year project. Developed using Flutter aims to help digitalize childcare and infants checkup.",
-    image: "/logo/reactjs.svg",
-    techstack: [
-      "/logo/figma.svg",
-      "/logo/flutter.svg",
-      "/logo/firebase.svg",
-      "/logo/gcloud.svg",
-    ],
-  },
-  {
-    value: "item-4",
-    title: "ARJirim",
-    subtitle: "Science learning mobile application",
-    content:
-      "ARJIrim is a mobile application developed as my diplomas's final year project. Developed using Unity 3D aims to help standard fourth graders to learn matter topic interactively.",
-    image: "/logo/flutter.svg",
-    techstack: [
-      "/logo/figma.svg",
-      "/logo/flutter.svg",
-      "/logo/firebase.svg",
-      "/logo/gcloud.svg",
-    ],
-  },
-];
+type Projects = {
+  project_name: string;
+  project_short_desc: string;
+  tech_stack: string[];
+  project_desc: string;
+  project_links: {
+    github: string;
+    demo: string;
+  };
+  project_type: string;
+  project_pic: string;
+};
 
-const ProjectsSection: ForwardRefComponentNoProps<HTMLElement> = forwardRef(
-  (props, ref) => {
+type Props = {
+  projectsData: Projects[];
+};
+
+const ProjectsSection = forwardRef<HTMLElement, Props>(
+  ({ projectsData }, ref) => {
+    useEffect(() => {
+      console.log(projectsData);
+    }, [projectsData]);
+
+    const accordionItems = projectsData.map((project, index) => ({
+      value: `item-${index + 1}`,
+      title: project.project_name,
+      subtitle: project.project_short_desc,
+      content: project.project_desc,
+      image: project.project_pic,
+      techstack: Object.values(project.tech_stack),
+      githubLink: project.project_links?.github ?? null,
+      demoLink: project.project_links?.demo ?? null,
+      project_type: project.project_type,
+    }));
+
     return (
       <section
         ref={ref}

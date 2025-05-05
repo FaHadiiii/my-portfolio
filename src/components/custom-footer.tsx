@@ -13,7 +13,7 @@ const Footer: ForwardRefComponentNoProps<HTMLElement> = forwardRef(
     return (
       <section
         ref={ref}
-        className="p-8 flex flex-col items-start justify-center max-w-4xl mx-auto pb-12"
+        className="p-8 flex flex-col items-start justify-center max-w-4xl mx-auto pb-12 mt-20"
       >
         <div className="w-full rounded-xl border-2 border-neutral-900 md:h-[35vh] h-[25vh] relative p-1 flex flex-col items-center justify-center">
           <div className="absolute flex flex-col items-center gap-y-1 z-10">
