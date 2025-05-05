@@ -34,6 +34,7 @@ const ProjectsSection = forwardRef<HTMLElement, Props>(
       techstack: Object.values(project.tech_stack),
       githubLink: project.project_links?.github ?? null,
       demoLink: project.project_links?.demo ?? null,
+      project_type: project.project_type,
     }));
 
     return (
