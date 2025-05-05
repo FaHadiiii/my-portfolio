@@ -5,7 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { IconLink, IconBrandGithub, IconEye } from "@tabler/icons-react";
+import { IconLink, IconBrandGithub } from "@tabler/icons-react";
 import { Button } from "./ui/button";
 
 // Define the type for accordion items
@@ -16,6 +16,9 @@ interface AccordionItemProps {
   content: React.ReactNode;
   image?: string;
   techstack: string[];
+  githubLink?: string;
+  demoLink?: string;
+  project_type: string;
 }
 
 // Define the component props
@@ -74,14 +77,35 @@ const CustomAccordion: React.FC<CustomAccordionProps> = ({
                   ))}
                 </div>
                 <div className="flex space-x-2">
-                  <Button className="w-8 h-8">
-                    <IconLink className="text-neutral-400" />
+                  <Button
+                    className="h-8 px-3 flex items-center space-x-2 bg-neutral-900 text-neutral-400 hover:text-white"
+                    onClick={() => {
+                      if (item.demoLink) {
+                        window.open(item.demoLink, "_blank");
+                      }
+                    }}
+                    disabled={!item.demoLink}
+                    title={item.demoLink ? "View Demo" : "Link not available"}
+                  >
+                    <IconLink className="w-4 h-4" />
+                    <span className="text-xs">Live Demo</span>
                   </Button>
-                  <Button className="w-8 h-8">
-                    <IconBrandGithub className="text-neutral-400" />
-                  </Button>
-                  <Button className="w-8 h-8">
-                    <IconEye className="text-neutral-400" />
+
+                  <Button
+                    className="w-8 h-8 space-x-2 flex items-center bg-neutral-900 text-neutral-400 hover:text-white"
+                    onClick={() => {
+                      if (item.githubLink) {
+                        window.open(item.githubLink, "_blank");
+                      }
+                    }}
+                    disabled={!item.githubLink}
+                    title={
+                      item.githubLink
+                        ? "View on GitHub"
+                        : "GitHub link not available"
+                    }
+                  >
+                    <IconBrandGithub className="text-neutral-400 w-4 h-4" />
                   </Button>
                 </div>
               </div>

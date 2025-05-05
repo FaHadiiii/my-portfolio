@@ -32,6 +32,12 @@ const images = [
   "/logo/typescript.svg",
   "/logo/vscode.svg",
   "/logo/wordpress.svg",
+  "/logo/unity-w.svg",
+  "/logo/csharp.svg",
+  "/logo/drizzle.webp",
+  "/logo/neon.svg",
+  "/logo/reactbits.svg",
+  "/logo/vuforia.svg",
 ];
 
 type HomeData = {

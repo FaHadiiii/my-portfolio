@@ -15,7 +15,11 @@ import ProjectsSection from "@/components/project-section";
 import AboutSection from "@/components/about-section";
 import HomeSection from "@/components/home-section";
 
-type PageClientProps = HomeProps & AboutMeProps & certificationsProps;
+type PageClientProps = HomeProps &
+  AboutMeProps &
+  CertificationsProps &
+  SkillsProps &
+  ProjectsProps;
 
 export interface HomeProps {
   homeData: {
@@ -32,7 +36,7 @@ export interface AboutMeProps {
   }[];
 }
 
-export interface certificationsProps {
+export interface CertificationsProps {
   certsData: {
     cert_name: string;
     issuer: string;
@@ -40,7 +44,36 @@ export interface certificationsProps {
   }[];
 }
 
-const PageClient = ({ homeData, aboutMeData, certsData }: PageClientProps) => {
+export interface SkillsProps {
+  skillsData: {
+    skill_name: string;
+    skill_description: string;
+    stack_pic: string[];
+  }[];
+}
+
+export interface ProjectsProps {
+  projectsData: {
+    project_name: string;
+    project_short_desc: string;
+    tech_stack: string[];
+    project_desc: string;
+    project_links: {
+      github: string;
+      demo: string;
+    };
+    project_type: string;
+    project_pic: string;
+  }[];
+}
+
+const PageClient = ({
+  homeData,
+  aboutMeData,
+  certsData,
+  skillsData,
+  projectsData,
+}: PageClientProps) => {
   const homeRef = useRef<HTMLDivElement>(null!);
   const aboutRef = useRef<HTMLDivElement>(null!);
   const skillsref = useRef<HTMLDivElement>(null!);
@@ -110,13 +143,14 @@ const PageClient = ({ homeData, aboutMeData, certsData }: PageClientProps) => {
         ref={aboutRef}
         aboutMeData={aboutMeData[0]}
         certificationsData={certsData}
+        projectsData={projectsData}
       />
 
       {/* Skills Section */}
-      <SkillsSection ref={skillsref} />
+      <SkillsSection ref={skillsref} skillsData={skillsData} />
 
       {/* Projects Section */}
-      <ProjectsSection ref={projectsRef} />
+      <ProjectsSection ref={projectsRef} projectsData={projectsData} />
 
       {/* Footer */}
       <Footer ref={footer} />
