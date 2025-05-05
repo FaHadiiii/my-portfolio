@@ -159,3 +159,6 @@ const PageClient = ({
 };
 
 export default PageClient;
+
+export const dynamic = "force-dynamic";
+

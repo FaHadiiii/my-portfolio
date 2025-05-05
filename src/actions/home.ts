@@ -7,3 +7,6 @@ export const fetchHome = async () => {
   const homeRes = await db.select().from(homeTable);
   return homeRes;
 };
+
+export const dynamic = "force-dynamic";
+
