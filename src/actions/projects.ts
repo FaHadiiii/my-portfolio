@@ -8,5 +8,3 @@ export const fetchProjects = async () => {
   return projectRes;
 };
 
-export const dynamic = "force-dynamic";
-

@@ -14,5 +14,3 @@ export const fetchCertifications = async () => {
   return certRes;
 };
 
-export const dynamic = "force-dynamic";
-

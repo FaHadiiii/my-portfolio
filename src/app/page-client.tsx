@@ -14,6 +14,7 @@ import SkillsSection from "@/components/skill-section";
 import ProjectsSection from "@/components/project-section";
 import AboutSection from "@/components/about-section";
 import HomeSection from "@/components/home-section";
+export const dynamic = "force-dynamic";
 
 type PageClientProps = HomeProps &
   AboutMeProps &
@@ -159,6 +160,3 @@ const PageClient = ({
 };
 
 export default PageClient;
-
-export const dynamic = "force-dynamic";
-

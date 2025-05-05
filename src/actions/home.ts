@@ -8,5 +8,3 @@ export const fetchHome = async () => {
   return homeRes;
 };
 
-export const dynamic = "force-dynamic";
-
