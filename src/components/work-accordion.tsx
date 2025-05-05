@@ -48,7 +48,11 @@ const CustomAccordion: React.FC<CustomAccordionProps> = ({
             <AccordionTrigger className="flex items-center space-x-4 justify-between w-full hover:no-underline focus:no-underline">
               <div className="flex items-start space-x-6">
                 {item.image && (
-                  <img src={item.image} alt={item.title} className="h-8 w-8" />
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="h-8 w-8 rounded-md"
+                  />
                 )}
                 <div>
                   <span className="font-bold block text-neutral-300">
